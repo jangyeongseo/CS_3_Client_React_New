@@ -64,24 +64,24 @@ const ChartIndex = () => {
           <Routes>
             {/* TotalChart와 DetailChart에 필요한 데이터를 props로 전달 */}
             <Route
-              path=""
+              path="/" // URL은 고정됩니다.
               element={
-                <TotalChart menuList={menuList} activeMenu={activeMenu}
-                  currentWeek={currentWeek}          // 현재 주차 (State)
-                  standardData={currentStandardData}  // 표준 데이터 (JS File)
-                  actualData={currentActualData}      // 실제 측정 데이터 (DB Mock)
-
-
-                />
-              }
-            />
-            <Route
-              path="detail"
-              element={
-                <DetailChart menuList={menuList} activeMenu={activeMenu}
-                  currentWeek={currentWeek}
-                  standardData={currentStandardData}
-                  actualData={currentActualData} />
+                //  activeMenu 값에 따라 TotalChart와 DetailChart 중 하나만 렌더링됩니다.
+                activeMenu === 0 ? (
+                  <TotalChart
+                    menuList={menuList} activeMenu={activeMenu}
+                    currentWeek={currentWeek}
+                    standardData={currentStandardData}
+                    actualData={currentActualData}
+                  />
+                ) : (
+                  // activeMenu가 1 이상일 때 DetailChart가 렌더링됩니다.
+                  <DetailChart menuList={menuList} activeMenu={activeMenu}
+                    currentWeek={currentWeek}
+                    standardData={currentStandardData}
+                    actualData={currentActualData}
+                  />
+                )
               }
             />
           </Routes>

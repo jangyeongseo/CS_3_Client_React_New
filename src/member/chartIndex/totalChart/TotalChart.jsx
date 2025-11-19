@@ -7,24 +7,13 @@ import ReactECharts from 'echarts-for-react';
 const TotalChart = ({ menuList, activeMenu, currentWeek, standardData, actualData }) => {
 
 
-  // 1. activeMenu가 0이 아닐 경우, DetailChart에 역할을 넘깁니다.
-  if (activeMenu !== 0) {
-    return (
-      <div className={styles.contentBox}>
-        <div className={styles.chartArea}>
-          <> {menuList[activeMenu]} 차트 표시 영역</>
-        </div>
-      </div>
-    );
-  }
+
 
 
   // 2. [Default] activeMenu가 0일 경우, ECharts 옵션 생성 및 차트 렌더링을 진행합니다.
 
   //  로직 파일에서 옵션을 가져옵니다.
   const option = UseTotalChart(currentWeek, standardData, actualData);
-
-
   return (
     <div className={styles.contentBox}>
       {/* 실제 차트 들어가는 자리 */}
