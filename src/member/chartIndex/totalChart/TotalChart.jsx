@@ -1,59 +1,38 @@
-
 import React from "react";
 import styles from "./TotalChart.module.css";
+import { UseTotalChart } from "./UseTotalChart";
 import ReactECharts from 'echarts-for-react';
 
-// TotalChart는 ChartIndex로부터 필요한 모든 데이터를 props로 받습니다.
+// TotalChart는 ChartIndex로부터 메뉴 리스트와 활성 상태를 props로 받음
 const TotalChart = ({ menuList, activeMenu, currentWeek, standardData, actualData }) => {
 
 
+  // 1. activeMenu가 0이 아닐 경우, DetailChart에 역할을 넘깁니다.
+  if (activeMenu !== 0) {
+    return (
+      <div className={styles.contentBox}>
+        <div className={styles.chartArea}>
+          <> {menuList[activeMenu]} 차트 표시 영역</>
+        </div>
+      </div>
+    );
+  }
+
 
   // 2. [Default] activeMenu가 0일 경우, ECharts 옵션 생성 및 차트 렌더링을 진행합니다.
-  const getRadarOption = () => {
-    if (!standardData || !actualData) {
-      return {};
-    }
 
-    // (이전과 동일한 데이터 변환 및 옵션 설정 로직)
-    const indicators = Object.keys(standardData).map(key => ({
-      name: standardData[key].name, max: standardData[key].max * 1.05, unit: standardData[key].unit
-    }));
-    const averageValues = Object.keys(standardData).map(key => standardData[key].avg);
-    const actualValues = Object.keys(standardData).map(key => actualData[key] || 0);
-
-    return {
-      title: { text: `임신 ${currentWeek}주 태아 성장 분석`, left: 'center' },
-      legend: { data: ['내 아기 측정치', '표준 평균'], bottom: 0 },
-      radar: {
-        indicator: indicators,
-        name: { formatter: (value, indicator) => `${value} (${indicator.unit})`, /* ... */ },
-        radius: '65%',
-      },
-      series: [{
-        name: `측정 vs 표준 (${currentWeek}주)`,
-        type: 'radar',
-        data: [
-          { value: actualValues, name: '내 아기 측정치', symbolSize: 8 },
-          { value: averageValues, name: '표준 평균', symbolSize: 0 }
-        ]
-      }]
-    };
-  };
+  //  로직 파일에서 옵션을 가져옵니다.
+  const option = UseTotalChart(currentWeek, standardData, actualData);
 
 
   return (
     <div className={styles.contentBox}>
       {/* 실제 차트 들어가는 자리 */}
       <div className={styles.chartArea}>
-        {activeMenu === 0 ? (
-          <ReactECharts
-            option={getRadarOption()}
-            style={{ height: '100%', width: '100%' }}
-          />
-        ) : (
-          // activeMenu가 0이 아닐 때: 플레이스홀더 텍스트 표시
-          <> {menuList[activeMenu]} 차트 표시 영역</>
-        )}
+        <ReactECharts
+          option={option} // 가공된 옵션을 바로 사용
+          style={{ height: '100%', width: '100%' }}
+        />
       </div>
     </div>
   );
