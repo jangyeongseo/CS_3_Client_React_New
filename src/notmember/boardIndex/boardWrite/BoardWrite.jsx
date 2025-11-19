@@ -1,3 +1,6 @@
+import { useState } from "react";
+import BoardEditor from "./BoardEditor";
+import FileBox from "./file/FileBox";
 import styles from "./BoardWrite.module.css";
 
 const BoardWrite = () => {

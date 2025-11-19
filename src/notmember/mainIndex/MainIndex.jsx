@@ -14,11 +14,13 @@ import styles from "./MainIndex.module.css";
 //여기서 로그인 여부에 따라서 보이고 안보이는게 다르게 만들어야함
 // "/"밑으로 들어가느 라우팅
 const MainIndex = ({ isLogin }) => {
+
+  
   return (
     <div className={styles.container}>
       {" "}
       {/*컨테이너 영역*/}
-      {/*헤더 영역 : 필요시 로그인 여부 데이터 넘겨서 display none 사용하세요*/}
+      {/*헤더 영역 :git 필요시 로그인 여부 데이터 넘겨서 display none 사용하세요*/}
       <header className={styles.MemberHeader}>
         <CommonHeader isLogin={isLogin} />
       </header>

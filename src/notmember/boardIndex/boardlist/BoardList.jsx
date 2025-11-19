@@ -32,7 +32,7 @@ const MOCK_DATA = [
       "임신 출산 진료비 지원금, 어디서 쓰면 제일 좋을까요? 조리원부터 약국까지 사용처 총정리!",
     views: 85,
     comments: 12,
-    imageUrl: "https://via.placeholder.com/300x200/87CEEB/ffffff?text=Review",
+    imageUrl: "",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const MOCK_DATA = [
       "배가 뭉치는 느낌이 계속 드는데 병원을 가야 할까요? 선배맘들의 조언 부탁드려요.",
     views: 342,
     comments: 28,
-    imageUrl: "https://via.placeholder.com/300x200/98FB98/ffffff?text=QnA",
+    imageUrl: "",
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const MOCK_DATA = [
       "6개월 정도 깨끗하게 썼어요. 부피가 커서 직접 가져가실 분만 연락 주세요. 지역은 서울입니다.",
     views: 56,
     comments: 3,
-    imageUrl: "https://via.placeholder.com/300x200/FFD700/ffffff?text=Share",
+    imageUrl: "",
   },
   {
     id: 5,
@@ -185,7 +185,7 @@ const BoardList = () => {
         </div>
         <button className={styles.pageControl}>
           <ChevronRight size={20} />
-          <ChevronsRight  size={20} />
+          <ChevronsRight size={20} />
         </button>
       </div>
     </div>
