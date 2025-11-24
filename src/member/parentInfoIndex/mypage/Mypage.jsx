@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Mypage.module.css";
-import useMypage from "./UseMypage";
+import useMypage from "./UseMypage"; // 첫 글자 대문자로
 const Mypage = () => {
   const [isEditing, setIsEditing] = useState(false); // 수정 상태변수
 

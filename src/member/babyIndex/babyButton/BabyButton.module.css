@@ -21,7 +21,7 @@
   gap: 16px;
   padding: 10px;
   border-radius: 50px;
-  border: 1px solid #8c8c8c;
+  /* border: 1px solid #8c8c8c; 이거 나중에 지우기 */
 }
 
 /*  개별 네비게이션 버튼 스타일 */

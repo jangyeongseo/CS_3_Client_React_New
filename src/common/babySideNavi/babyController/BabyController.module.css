@@ -52,29 +52,23 @@
 }
 
 .ingbaby {
-    width:20%;
-    border:2px solid #F0D827;
-    background-color: white;
+    width: 22%; /* hover 때 커지던 크기 */
+    border: 2px solid #F0D827;
+    background-color: #FFF4D6;
     border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease; /* 전체 확대 */
+    transition: transform 0.3s ease;
     cursor: pointer;
 }
 
-.ingbaby:hover {
-    background-color: #FFF4D6;
-    width: 22%;
-}
-
-.ingbaby:hover img,
-.ingbaby:hover .babyname,
-.ingbaby:hover .how {
+.ingbaby img,
+.ingbaby .babyname,
+.ingbaby .how {
     transform: scale(1.1); /* 가로+세로 5% 확대 */
     transition: transform 0.3s ease;
 }
-
 
 .bbb {
     display: flex;
