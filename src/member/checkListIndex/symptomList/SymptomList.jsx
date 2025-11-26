@@ -1,52 +1,40 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import styles from "./SymptomList.module.css";
+import { FETAL_CHECKLIST, BABY_CHECKLIST } from "./list";
 
-// 더미 데이터
-const SYMPTOM_DATA = [
-  {
-    week: "24개월 이후",
-    checks: [
-      { id: 1, title: "4차 영유아 건강검진" },
-      { id: 2, title: "독감 예방접종" },
-    ],
-  },
-  { week: "18개월 이후", checks: [{ id: 3, title: "3차 영유아 건강검진" }] },
-];
-
-// CheckItem 컴포넌트
-const CheckItem = ({ check, index }) => {
-  return (
-    <motion.div
-      className={styles.checkWrapper}
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-    >
-      <div className={styles.checkRow}>
-        <div className={styles.checkLeft}>
-          <div className={styles.checkIconDone} />
-          <span className={styles.checkTitle}>{check.title}</span>
-        </div>
+// --- CheckItem ---
+const CheckItem = ({ check, index }) => (
+  <motion.div
+    className={styles.checkWrapper}
+    initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: index * 0.05, duration: 0.4, ease: "easeOut" }}
+  >
+    <div className={styles.checkRow}>
+      <div className={styles.checkLeft}>
+        <div className={styles.checkIconDone} />
+        <span className={styles.checkTitle}>{check.title}</span>
       </div>
-    </motion.div>
-  );
-};
+    </div>
+  </motion.div>
+);
 
-// WeekSection 컴포넌트
-const WeekSection = ({ data, index }) => {
+// --- WeekSection ---
+const WeekSection = ({ data, index, isInfant }) => {
+  const title = isInfant ? data.month : data.week;
+
   return (
     <motion.div
       className={styles.weekSection}
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
     >
       <div className={styles.itemActive} />
       <div className={styles.weekContent}>
         <div className={styles.weekTitleWrapper}>
-          <span className={styles.weekTitle}>{data.week}</span>
+          <span className={styles.weekTitle}>{title}</span>
         </div>
         <div className={styles.checkList}>
           {data.checks.map((check, i) => (
@@ -58,17 +46,21 @@ const WeekSection = ({ data, index }) => {
   );
 };
 
-// SymptomList 메인
-const SymptomList = () => {
+// --- SymptomList 메인 ---
+const SymptomList = ({ babyData }) => {
+  if (!babyData) return null;
+
+  const isInfant = babyData.status === "infant";
+  const checklist = isInfant ? BABY_CHECKLIST : FETAL_CHECKLIST;
+
   return (
     <div className={styles.main}>
       <div className={styles.lineWrapper}>
         <div className={styles.timelineLine} />
       </div>
-
       <div className={styles.sectionList}>
-        {SYMPTOM_DATA.map((section, i) => (
-          <WeekSection key={i} data={section} index={i} />
+        {checklist.map((section, i) => (
+          <WeekSection key={section.id} data={section} index={i} isInfant={isInfant} />
         ))}
       </div>
     </div>
