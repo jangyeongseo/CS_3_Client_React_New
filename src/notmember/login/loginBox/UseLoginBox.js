@@ -6,7 +6,7 @@ import { connectWebSocket } from "common/webSocket/connectWebSocket";
 
 function useLoginBox() {
     // 로그인 준비
-    const { login, getbabySeq } = useAuthStore((state) => state);
+    const { login, getbabySeq, setBabyDueDate } = useAuthStore((state) => state);
     const navigate = useNavigate();
 
     const [alerts, setAlerts] = useState([]);
@@ -32,6 +32,7 @@ function useLoginBox() {
 
         caxios.post("/user/login", { user_id: data.id, password: data.pw })
             .then(resp => {
+                console.log(resp.data);
                 const babyseq = Number(resp.data.babySeq);
                 login(resp.data.token, data.id);
                 getbabySeq(babyseq);
@@ -39,6 +40,7 @@ function useLoginBox() {
                     console.log('알람 수신:', alert);
                     setAlerts(prev => [...prev, alert]);
                 });
+                setBabyDueDate(resp.data.babyDueDate);
                 if (babyseq == 0) {
                     navigate("/chooseType");
                 } else {

@@ -4,7 +4,7 @@ import useAuthStore from "../../../store/useStore";
 import { useNavigate } from "react-router-dom";
 
 function useBabyController() {
-    const { babySeq, getbabySeq, id } = useAuthStore((state) => state);
+    const { babySeq, getbabySeq, id, setBabyDueDate } = useAuthStore((state) => state);
     const [data, setData] = useState([]);
     const navigate = useNavigate();
 
@@ -29,11 +29,12 @@ function useBabyController() {
     }
 
     // 애기 선택시 페이지 이동
-    const changeBaby = (seq) => {
+    const changeBaby = (seq, date) => {
         caxios.post("/user/changeBaby", { last_baby: babySeq })
             .then(resp => {
                 getbabySeq(seq);
                 navigate("/babymypage");
+                setBabyDueDate(date);
             })
             .catch(err => console.log(err));
     }
