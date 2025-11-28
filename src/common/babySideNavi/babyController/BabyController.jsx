@@ -12,7 +12,7 @@ import four from "./img/four.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 import InputBaby from "../../../member/inputBaby/InputBaby";
-import useBabyController from "./useBabyController";
+import useBabyController from "./UseBabyController";
 
 const BabyController = ({ isSidebar }) => {
   const [showModal, setShowModal] = useState(false); // 아기 추가 모달
@@ -40,8 +40,9 @@ const BabyController = ({ isSidebar }) => {
             {data.map((baby, index) => (
               <button
                 key={index}
-                className={`${babySeq == baby.baby_seq ? styles.ingbaby1 : styles.ingbaby
-                  }`}
+                className={`${
+                  babySeq == baby.baby_seq ? styles.ingbaby1 : styles.ingbaby
+                }`}
                 onClick={() => changeBaby(baby.baby_seq)}
               >
                 <div className={styles.bbb}>
