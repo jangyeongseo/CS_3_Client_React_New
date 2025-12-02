@@ -9,6 +9,8 @@ import ChooseType from "./member/chooseType/ChooseType.jsx";
 import useAuthStore from './store/useStore.js';
 import InputBaby from "./member/inputBaby/InputBaby";
 import { connectWebSocket } from 'common/webSocket/connectWebSocket';
+import "./styles/them.css";
+
 
 function App() {
   const { login, isLogin, getbabySeq, setBabyDueDate } = useAuthStore((state) => state);
