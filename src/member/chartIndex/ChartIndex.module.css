@@ -9,8 +9,8 @@
   height: 100%;
   flex: 1;
   box-sizing: border-box;
-  font-family: Pretendard;
-  color: #696b70;
+  font-family: var(--font-family);
+  color: var(--color-font-color1);
 }
 
 .menuSection {
@@ -26,26 +26,26 @@
 .menuButton,
 .menuActive {
   flex-shrink: 0;
-  width: 180px;
-  height: 44px;
-  border-radius: 20px;
-  font-size: 16px;
-  padding: 0 14px;
+  width: 200px;
+  height: 48px;
+  border-radius: var(--border-radius-main);
+  font-size: 18px;
+  padding: 0 16px;
   box-sizing: border-box;
   border: none;
   cursor: pointer;
 }
 
 .menuActive {
-  background-color: #adb9e3;
-  color: #fff;
+  background-color: var(--color-main);
+  color: var(--color-white);
   font-weight: 800;
 }
 
 .menuButton {
   background-color: transparent;
-  border: 2px solid #adb9e3;
-  color: #696b70;
+  border: 2px solid var(--color-main);
+  color: var(--color-font-color1);
 }
 
 .contentWrapper {

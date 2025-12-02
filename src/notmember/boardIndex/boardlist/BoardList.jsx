@@ -47,7 +47,7 @@ const BoardList = ({ handleDeleteBoard, handleEditBoard }) => {
 
   const [reportOpen, setReportOpen] = useState(false);
 
-
+  const [selectedBoardSeq, setSelectedBoardSeq] = useState(null);
 
 
 
@@ -80,7 +80,7 @@ const BoardList = ({ handleDeleteBoard, handleEditBoard }) => {
           <div className={styles.searchBar}>
             <input
               type="text"
-              placeholder="제목을 입력하세요"
+              placeholder="제목 또는 내용을 입력하세요"
               className={styles.searchInput}
               value={findTarget}
               onChange={handleFindTarget}
@@ -146,7 +146,7 @@ const BoardList = ({ handleDeleteBoard, handleEditBoard }) => {
 
                   {openMenuId === item.board.board_seq && (
                     <div className={styles.dropdownMenu}>
-                      {isMine ? (
+                      {item.isMine ? (
                         <>
                           <button
                             className={styles.menuItem}
@@ -170,7 +170,8 @@ const BoardList = ({ handleDeleteBoard, handleEditBoard }) => {
                           className={styles.menuItem}
                           onClick={(e) => {
                             handleMenuItemClick(e, "report", item.board.board_seq);
-                            setReportOpen(true)
+                            setReportOpen(true);
+                            setSelectedBoardSeq(item.board.board_seq);
                           }}
                         >
                           신고
@@ -213,12 +214,13 @@ const BoardList = ({ handleDeleteBoard, handleEditBoard }) => {
         <PageNaviBar page={page} setPage={setPage} count={count} totalCount={totalCount} typeBtn={typeBtn} />
       </div>
 
-        {reportOpen && (
-  <BoardOver
-    isOpen={reportOpen}
-    onClose={() => setReportOpen(false)}
-  />
-)}
+      {reportOpen && (
+        <BoardOver
+          isOpen={reportOpen}
+          onClose={() => setReportOpen(false)}
+          boardSeq={selectedBoardSeq}
+        />
+      )}
     </div>
   );
 };
