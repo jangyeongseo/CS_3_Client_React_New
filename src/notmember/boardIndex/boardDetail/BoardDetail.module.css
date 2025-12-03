@@ -416,6 +416,10 @@
 
 /* --- 1024px 이하: 모바일 레이아웃 기초 --- */
 @media (max-width: 1024px) {
+  .parent {
+    padding: 20px 0;
+  }
+
   .mainContentWrapper {
     flex-direction: column;
     gap: 16px;
@@ -439,7 +443,7 @@
 
   .commentListWrapper {
     max-height: none;
-    padding: 0 16px 80px; /* 댓글 입력창 공간 확보 */
+    padding: 0 16px 80px;
   }
 }
 

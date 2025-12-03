@@ -367,19 +367,11 @@
 /* 1440px 이하: 4컬럼 */
 @media (max-width: 1440px) {
   .container {
-    padding: 20px;
+    padding: 20px 0;
   }
 
   .gridContainer {
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  .leftGroup {
-    width: 100%;
-  }
-
-  .rightGroup {
-    width: 100%;
   }
 }
 
@@ -478,8 +470,8 @@
   }
 }
 
-/* 430px 이하: 1컬럼 */
-@media (max-width: 430px) {
+/* 480px 이하: 1컬럼 */
+@media (max-width: 480px) {
   .gridContainer {
     grid-template-columns: repeat(1, 1fr);
   }
