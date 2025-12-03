@@ -188,6 +188,7 @@ const ChartIndex = () => {
                     menuList={currentMenuList} // 수정된 리스트 전달
                     activeMenu={activeMenu}
                     currentWeek={currentWeek}
+                    actualData={actualData}
                     standardData={currentStandardData}
                     isFetalMode={isFetalMode} // 모드 전달
                   //babyInfo={babyInfo}

@@ -1,51 +1,47 @@
-import React, { useState, useEffect } from "react";
-import styles from "./DetailChart.module.css";
-import { UseDetailChart } from "./UseDetailChart";
+import React, { useEffect, useState } from "react";
 import ReactECharts from 'echarts-for-react';
+import { UseDetailChart } from "./UseDetailChart";
 import useAuthStore from "../../../store/useStore";
-//디테일 차트 인덱스 "/chart/detail" 여기까지 라우팅
-const DetailChart = ({ menuList, activeMenu, currentWeek, standardData, isFetalMode }) => {
+
+const DetailChart = ({ menuList, activeMenu, currentWeek, actualData, standardData, isFetalMode }) => {
+
 
   const [option, setOption] = useState({});
-  const babySeq = useAuthStore((state) => state.babySeq);
-  const babyDueDate = useAuthStore((state) => state.babyDueDate);
+  const babySeq = useAuthStore(state => state.babySeq);
+  const babyDueDate = useAuthStore(state => state.babyDueDate);
 
-
+  console.log("DetailChart Props:", {
+    menuList,
+    activeMenu,
+    currentWeek,
+    standardData,
+    actualData,
+    babySeq,
+    babyDueDate,
+    isFetalMode
+  });
   useEffect(() => {
     if (!babySeq || !babyDueDate) {
       console.warn("DetailChart: babySeq 또는 dueDate 없음");
+      setOption({});
       return;
     }
 
-    const chartOption = UseDetailChart(
-      activeMenu,
-      currentWeek,
-      menuList,
-      standardData,
-      babySeq,
-      babyDueDate,
-      isFetalMode
-    );
-    setOption(chartOption);
+    UseDetailChart(activeMenu, currentWeek, menuList, standardData, babySeq, babyDueDate, isFetalMode)
+      .then(chartOption => setOption(chartOption));
+    console.log("UseDetailChart 반환 옵션:", option);
+
   }, [activeMenu, currentWeek, menuList, standardData, babySeq, babyDueDate, isFetalMode]);
 
-
-  // 3. 렌더링
   return (
-    <div className={styles.contentBox}>
-      <div className={styles.chartArea}>
-        {/* 3. ReactECharts를 사용하여 꺾은선 그래프 렌더링 */}
-
-        <ReactECharts
-          option={option}
-          style={{ height: '100%', width: '100%' }}
-
-        />
-      </div>
+    <div style={{ height: '100%', width: '100%' }}>
+      {option ? (
+        <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
+      ) : (
+        <p>아기 정보가 로드될 때까지 대기중...</p>
+      )}
     </div>
-
   );
-
 };
 
 export default DetailChart;
