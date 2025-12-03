@@ -19,7 +19,7 @@ const BabySideNavi = ({ onClose }) => {
   const onclickSecession = () => {
     // eslint-disable-next-line no-restricted-globals
     if (confirm(`정말 회원탈퇴를 하시겠습니까?\n이 작업 완료 후 데이터는 되돌릴 수 없습니다.`)) {
-      caxios.post("/user/secession")
+      caxios.delete("/user/secession")
       .then(resp=>{
         alert("탈퇴가 완료되었습니다.\n그동안 이용해주셔서 감사합니다.");
         logout();
