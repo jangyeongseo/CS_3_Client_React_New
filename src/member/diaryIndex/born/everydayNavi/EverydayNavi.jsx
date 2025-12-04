@@ -32,16 +32,10 @@ const cardVariants = {
 
 
 
-const EverydayNavi = () => {
+const EverydayNavi = ({ startDate, setStartDate, endDate, setEndDate, avg, handleSearch }) => {
   const {
-    handleSearch,
-    startDate,
-    setStartDate,
     today,
-    endDate,
-    setEndDate,
-    loading,
-    avg,
+    loading
   } = useEverydayNavi();
 
 
@@ -51,7 +45,7 @@ const EverydayNavi = () => {
       <div className={styles.dateBox}>
         <input type="date" value={startDate} className={styles.dateInput} onChange={(e) => setStartDate(e.target.value)} max={today} />
         <input type="date" value={endDate} className={styles.dateInput} onChange={(e) => setEndDate(e.target.value)} max={today} />
-        <button onClick={handleSearch} disabled={loading}> {loading ? "로딩..." : "검색"}</button>
+        <button onClick={() => { handleSearch(startDate, endDate) }} disabled={loading}> {loading ? "로딩..." : "검색"}</button>
       </div>
 
       {/* 요약 카드 */}
@@ -68,7 +62,7 @@ const EverydayNavi = () => {
                 <Icon size={28} strokeWidth={2.5} color={item.color} />
                 <div className={styles.summaryText}>
                   <div className={styles.summaryTitle}>{item.title}</div>
-                  <div className={styles.summaryValue}>{avg[key] ?? "-"}</div>
+                  <div className={styles.summaryValue}>{avg?.[key] ?? "-"}</div>
                 </div>
               </motion.div>
             );
