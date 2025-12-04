@@ -26,7 +26,7 @@ export const UseDetailChart = (activeMenu, currentWeek, menuList, standardData, 
                 if (isFetalMode) {
                     idx = calculateFetalWeek(babyDueDate, r.measure_date);
                 } else {
-                    idx = calculateInfantWeek(babyDueDate, r.measure_date);
+                    idx = Math.floor(calculateInfantWeek(babyDueDate, r.measure_date) / 4) + 1;
                 }
                 if (!actual[idx]) actual[idx] = {};
                 metricKeys.forEach(key => {
@@ -35,8 +35,8 @@ export const UseDetailChart = (activeMenu, currentWeek, menuList, standardData, 
                 actual[idx][r.measure_type] = r.measure_value;
             });
 
-            const START = isFetalMode ? 14 : 0;
-            const END = isFetalMode ? 40 : 24;
+            const START = isFetalMode ? 14 : 1;
+            const END = isFetalMode ? 40 : 25;
             const xAxis = [];
             const avgData = [];
             const actualBabyData = [];

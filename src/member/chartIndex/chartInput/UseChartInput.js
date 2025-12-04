@@ -1,7 +1,7 @@
 import { caxios } from "../../../config/config";
 
 // 전송 로직 분리
-export const submitChartData = async ({ date, babySeq, id, measureTypes }) => {
+export const submitChartData = async ({ date, babySeq, id, measureTypes, actualData }) => {
 
   const payload = Object.entries(measureTypes)
     .filter(([, value]) => value !== undefined && value !== null && value !== "")
@@ -11,6 +11,7 @@ export const submitChartData = async ({ date, babySeq, id, measureTypes }) => {
       measure_date: date,
       measure_type: type,
       measure_value: type === "EFW" ? parseFloat(value) * 1000 : parseFloat(value),
+      created_at: actualData.measure_date
     }));
 
   console.log("payload", JSON.stringify(payload));
@@ -26,7 +27,7 @@ export const submitChartData = async ({ date, babySeq, id, measureTypes }) => {
   }
 };
 
-export const updateChartData = async ({ date, babySeq, id, measureTypes }) => {
+export const updateChartData = async ({ date, babySeq, id, measureTypes, actualData }) => {
   const payload = Object.entries(measureTypes)
     .filter(([, value]) => value !== null && value !== undefined)
     .map(([type, value]) => ({
@@ -35,6 +36,7 @@ export const updateChartData = async ({ date, babySeq, id, measureTypes }) => {
       measure_date: date,
       measure_type: type,
       measure_value: type === "EFW" ? parseFloat(value) * 1000 : parseFloat(value),
+      created_at: actualData.measure_date
     }));
 
   if (payload.length === 0) {

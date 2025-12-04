@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactECharts from 'echarts-for-react';
+import styles from "./DetailChart.module.css";
 import { UseDetailChart } from "./UseDetailChart";
 import useAuthStore from "../../../store/useStore";
 
@@ -34,12 +35,14 @@ const DetailChart = ({ menuList, activeMenu, currentWeek, actualData, standardDa
   }, [activeMenu, currentWeek, menuList, standardData, babySeq, babyDueDate, isFetalMode]);
 
   return (
-    <div style={{ height: '100%', width: '100%' }}>
-      {option ? (
-        <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
-      ) : (
-        <p>아기 정보가 로드될 때까지 대기중...</p>
-      )}
+    <div className={styles.contentBox}>
+      <div className={styles.chartArea}>
+        {option ? (
+          <ReactECharts option={option} style={{ height: '100%', width: '100%' }} />
+        ) : (
+          <p>아기 정보가 로드될 때까지 대기중...</p>
+        )}
+      </div>
     </div>
   );
 };

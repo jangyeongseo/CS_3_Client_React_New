@@ -167,37 +167,33 @@ const ChartIndex = () => {
 
       <div className={styles.contentWrapper}>
         <div className={styles.chartRouteArea} >
-          <Routes>
-            <Route
-              path="/"
-              element={
-                // activeMenu 값에 따라 TotalChart와 DetailChart 중 하나만 렌더링
-                activeMenu === 0 ? (
-                  <TotalChart
-                    currentWeek={currentWeek}
-                    standardData={currentStandardData}
-                    actualData={actualData}
-                    setActualData={setActualData}
-                    isFetalMode={isFetalMode} // 모드 전달
-                    inputs={inputs}
+          {
+            activeMenu === 0 ? (
+              <TotalChart
+                currentWeek={currentWeek}
+                standardData={currentStandardData}
+                actualData={actualData}
+                setActualData={setActualData}
+                isFetalMode={isFetalMode} // 모드 전달
+                inputs={inputs}
 
-                  />
-                ) : (
-                  // activeMenu가 1 이상일 때 DetailChart가 렌더
-                  <DetailChart
-                    menuList={currentMenuList} // 수정된 리스트 전달
-                    activeMenu={activeMenu}
-                    currentWeek={currentWeek}
-                    actualData={actualData}
-                    standardData={currentStandardData}
-                    isFetalMode={isFetalMode} // 모드 전달
-                  //babyInfo={babyInfo}
+              />
+            ) : (
+              // activeMenu가 1 이상일 때 DetailChart가 렌더
+              <DetailChart
+                menuList={currentMenuList} // 수정된 리스트 전달
+                activeMenu={activeMenu}
+                currentWeek={currentWeek}
+                actualData={actualData}
+                standardData={currentStandardData}
+                isFetalMode={isFetalMode} // 모드 전달
+              //babyInfo={babyInfo}
 
-                  />
-                )
-              }
-            />
-          </Routes>
+              />
+            )
+          }
+
+
         </div>
 
         {/* 입력폼 */}
@@ -216,7 +212,7 @@ const ChartIndex = () => {
           />
         )}
       </div>
-    </div>
+    </div >
   );
 };
 export default ChartIndex;

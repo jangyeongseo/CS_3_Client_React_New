@@ -1,10 +1,9 @@
 export const UseTotalChart = (currentWeek, standardData, actualData, inputs, isFetalMode) => {
     if (!standardData) {
-        console.log("엥 표준데이터 없어요? 그럴리가");
+
         return {};
     }
 
-    console.log("엥  페탈은 있어야하는데?", isFetalMode);
 
 
     const keyMap = isFetalMode ? {
@@ -41,7 +40,7 @@ export const UseTotalChart = (currentWeek, standardData, actualData, inputs, isF
         title: {
             text: isFetalMode
                 ? `임신 ${currentWeek}주 태아 성장 분석`
-                : `${currentWeek}개월 영유아 성장 분석`, left: 'center'
+                : `${Math.floor(currentWeek / 4) + 1}개월 영유아 성장 분석`, left: 'center'
         },
         legend: { data: ['내 아기 측정치', '표준 평균'], bottom: 0 },
         tooltip: {},
