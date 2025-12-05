@@ -12,7 +12,7 @@ export function UseBoardWrite() {
     const location = useLocation();
     const isEditMode = location.state?.mode == "edit";
     const editBoardSeq = location.state?.board_seq;
-
+    const [isSubmitting, setIsSubmitting] = useState(false); // 작성 중 / 업로드 중 여부
 
 
     // ----------- 버튼 상태변수 -----------
@@ -189,8 +189,10 @@ export function UseBoardWrite() {
 
     //작성완료
     const handleComplete = async () => {
+        if (isSubmitting) return; // 서버 전송중이라면 버튼 차단
+        setIsSubmitting(true);
         if (!editorInstance) return;
-        if (titleRef.current?.value.length > 30){
+        if (titleRef.current?.value.length > 30) {
             alert("제목은 최대 30글자까지 가능합니다.");
             return;
         }
@@ -339,6 +341,7 @@ export function UseBoardWrite() {
 
                 form.append("deletedFiles", JSON.stringify(deletedFiles));
                 await caxios.put("/board/update", form);
+                setIsSubmitting(false);
                 alert("수정이 완료되었습니다!")
                 navigate(-1);
 
@@ -353,6 +356,7 @@ export function UseBoardWrite() {
                 await caxios.post("/board/write", form)
                     .then(resp => {
                         console.log(resp);
+                        setIsSubmitting(false);
                         alert("작성이 완료되었습니다!")
                         navigate("/board");
                     })
@@ -362,9 +366,6 @@ export function UseBoardWrite() {
                 alert("업로드에 실패했습니다. 다시 시도하세요");
             }
         }
-
-
-
     };
 
     ///-----------------------useEffect 모음
@@ -511,5 +512,6 @@ export function UseBoardWrite() {
         isOpen,
         selected,
         selectedVisibility,
+        isSubmitting
     };
 }

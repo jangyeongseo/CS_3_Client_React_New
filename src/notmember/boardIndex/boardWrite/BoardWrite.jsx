@@ -3,6 +3,7 @@ import { ChevronDown, UploadCloud, X } from "lucide-react";
 import styles from "./BoardWrite.module.css";
 import { UseBoardWrite } from "./UseBoardWrite";
 import { SimpleEditor } from "@/components/tiptap-templates/simple/simple-editor";
+import Loading from "common/loading/Loading";
 
 const BoardWrite = () => {
   const {
@@ -25,6 +26,7 @@ const BoardWrite = () => {
     isOpen,
     selected,
     selectedVisibility,
+    isSubmitting
   } = UseBoardWrite();
 
   return (
@@ -78,9 +80,8 @@ const BoardWrite = () => {
             {/* 전체 옵션 */}
             <label
               htmlFor="visibility-all"
-              className={`${styles.radioOption} ${
-                selectedVisibility === "all" ? styles.activeRadio : ""
-              }`}
+              className={`${styles.radioOption} ${selectedVisibility === "all" ? styles.activeRadio : ""
+                }`}
             >
               <input
                 type="radio"
@@ -97,9 +98,8 @@ const BoardWrite = () => {
             {/* 멤버 옵션 */}
             <label
               htmlFor="visibility-member"
-              className={`${styles.radioOption} ${
-                selectedVisibility === "member" ? styles.activeRadio : ""
-              }`}
+              className={`${styles.radioOption} ${selectedVisibility === "member" ? styles.activeRadio : ""
+                }`}
             >
               <input
                 type="radio"
@@ -174,10 +174,15 @@ const BoardWrite = () => {
         <button onClick={handleBack} className={styles.backButton}>
           뒤로가기
         </button>
-        <button onClick={handleComplete} className={styles.completeButton}>
+        <button onClick={handleComplete} className={styles.completeButton} disabled={isSubmitting}>
           완료
         </button>
       </div>
+      {
+        isSubmitting && (
+          <Loading   message="처리중 ... " />
+        )
+      }
     </div>
   );
 };
