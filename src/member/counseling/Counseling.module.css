@@ -16,7 +16,7 @@
   height: 100%;
   position: relative; /* z-index 적용 가능하게 */
   z-index: 10001;     /* 오른쪽보다 낮게 설정하면 뒤에 깔림 */
-  background-color: rgba(0, 0, 0, 0.3); /* 투명 어둡게 overlay 느낌 */
+  background-color: rgba(140, 140, 140, 0.5); /* 투명 어둡게 overlay 느낌 */
 }
 
 .right {
@@ -118,15 +118,15 @@
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  border: 1px solid #808080;
+  border:1px solid var(--color-font-back);
   padding-left: 10px;
-  padding-right: 50px; /* 버튼 공간 확보 */
+  padding-right: 80px; /* 버튼 공간 확보 */
   box-sizing: border-box;
   outline: none;
 }
 
 .chme input:focus {
-  border: 1px solid #808080;
+  border:1px solid var(--color-font-back);
   box-shadow: none;
 }
 
