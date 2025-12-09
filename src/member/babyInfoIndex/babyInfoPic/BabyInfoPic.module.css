@@ -6,12 +6,13 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  /* border:1px solid black; */
 }
 
+/* 공통: 배경 이미지 */
 .backImage {
   position: absolute;
   width: 80%;
+  max-width: 500px;
   height: auto;
   object-fit: contain;
   left: 50%;
@@ -19,13 +20,22 @@
   transform: translate(-50%, -50%);
 }
 
-/* ========== 엄마(Mom) 이미지 스타일 ========== */
+/* ================= Mom ================= */
 .jionewbabyImage {
   width: 76%;
+  max-width: 550px;
   height: auto;
   z-index: 2;
-
   animation: momFloat 4s ease-in-out infinite;
+}
+
+/* ================= Child ================= */
+.childrenImage {
+  width: 50%;
+  max-width: 420px;
+  height: auto;
+  z-index: 2;
+  animation: childFloat 3s ease-in-out infinite;
 }
 
 /* mom 전용 애니메이션 */
@@ -66,5 +76,33 @@
   }
   100% {
     transform: translateY(0px) scale(1);
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .backImage {
+    width: 80%;
+  }
+
+  .jionewbabyImage {
+    width: 60%;
+  }
+
+  .childrenImage {
+    width: 60%;
+  }
+}
+@media (max-width: 480px) {
+  .backImage {
+    width: 80%;
+  }
+
+  .jionewbabyImage {
+    width: 60%;
+  }
+
+  .childrenImage {
+    width: 60%;
   }
 }

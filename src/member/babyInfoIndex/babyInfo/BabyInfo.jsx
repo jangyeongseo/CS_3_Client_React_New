@@ -120,7 +120,7 @@ const BabyInfo = () => {
                       cursor: "pointer",
                     }}
                   >
-                    {gender === "미정" ? "미정?" : gender}
+                    {gender === "미정" ? "아직몰라요" : gender}
                   </button>
                 ))
             ) : (

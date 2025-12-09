@@ -25,20 +25,25 @@
 }
 
 /* ------------------------ */
-/* 모바일 & 태블릿 반응형 ONLY */
-/* 기본 UI 절대 영향 X */
 
-/* 작은 모바일 (320~375px) */
 @media (max-width: 374px) {
   .container {
     flex-direction: column;
     gap: 8px;
     max-height: 100vh;
-    overflow-y: auto;
     padding: 5px;
+
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .left, .right {
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .left,
+  .right {
     flex: unset; /* 화면 전체 사용 */
   }
 
@@ -52,14 +57,12 @@
     flex-direction: column;
     gap: 8px;
     max-height: 100vh;
-    overflow-y: auto;
-    padding: 5px;
-
+    padding: 20px 0;
   }
 
-  .left, .right {
+  .left,
+  .right {
     flex: unset; /* 화면 전체 사용 */
-    
   }
 
   .right {
@@ -73,11 +76,11 @@
     flex-direction: column;
     gap: 8px;
     max-height: 100vh;
-    overflow-y: auto;
-    padding: 6px;
+    padding: 20px 0;
   }
 
-  .left, .right {
+  .left,
+  .right {
     flex: unset;
   }
 
@@ -92,11 +95,11 @@
     flex-direction: column;
     gap: 10px;
     max-height: 100vh;
-    overflow-y: auto;
-    padding: 8px;
+    padding: 20px 0;
   }
 
-  .left, .right {
+  .left,
+  .right {
     flex: unset;
   }
 
@@ -110,6 +113,7 @@
   .container {
     flex-direction: row;
     gap: 12px;
+    padding: 20px 0;
   }
 
   .left {
@@ -129,6 +133,7 @@
   .container {
     flex-direction: row;
     gap: 16px;
+    padding: 20px 0;
   }
 
   .left {
@@ -150,6 +155,17 @@
     gap: 24px;
   }
 
-  .left { flex: 1; }
-  .right { flex: 2; gap: 24px; }
+  .left {
+    flex: 1;
+  }
+  .right {
+    flex: 2;
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    padding: 20px 0;
+  }
 }

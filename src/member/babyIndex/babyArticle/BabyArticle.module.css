@@ -4,10 +4,34 @@
   position: relative;
   text-align: left;
   font-size: 22px;
-  color: #696b70;
-  font-family: "Noto Sans KR", sans-serif;
+  color: var(--color-font-color1);
+  font-family: var(--font-family);
 
-  overflow-y: scroll; /* 세로 스크롤 */
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
+}
+
+/* 스크롤바 css 적용 */
+.sectionWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* 3. 스크롤바 트랙(배경) */
+.sectionWrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 4. 스크롤바 핸들(움직이는 막대) */
+.sectionWrapper::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  border: 2px solid var(--color-white);
+}
+
+/* 5. 핸들에 마우스를 올렸을 때 색상 변경 */
+.sectionWrapper::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-hover);
 }
 
 /* ======================= 각 카드 전체 래퍼 ======================= */
@@ -40,9 +64,30 @@
   height: 173px;
 }
 
+.imageSource {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-font-color1);
+
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.imageSource::before {
+  content: "🔗";
+}
+
 /* 카드 하단 텍스트 영역 */
 .cardContent {
-  background-color: #fff;
+  background-color: var(--color-white);
   padding: 23px 20px 20px 20px;
 }
 
@@ -50,7 +95,7 @@
 .cardTitle {
   font-size: 22px;
   font-weight: bold;
-  color: #696b70;
+  color: var(--color-font-color1);
 }
 
 /* 카드 설명 (2줄 말줄임) */
@@ -58,7 +103,7 @@
   font-size: 16px;
   line-height: 141%;
   margin-top: 8px;
-  color: #696b70;
+  color: var(--color-font-color1);
 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -83,43 +128,31 @@
   margin-top: 30px;
 }
 
-/* 개별 기사 아이템 */
+/* 기사 개별 아이템 */
 .articleItem {
   display: block;
   text-decoration: none;
   color: inherit;
 
   padding: 12px;
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
   transition: background-color 0.2s;
 }
 
-/* 호버 시 색상 변경 */
-.articleItem:hover {
-  background-color: #f5f5f5;
-}
-
 /* 기사 제목 */
 .articleTitle {
   font-weight: bold;
-  color: #333;
-}
-
-/* 기사 날짜 */
-.articleDate {
-  font-size: 12px;
-  color: #999;
-  margin-top: 4px;
+  color: var(--color-font-color1);
 }
 
 /* ======================= 로딩 & 에러 ======================= */
 .loading {
   text-align: center;
   margin-top: 40px;
-  color: #666;
+  color: var(--color-font-color1);
   font-size: 16px;
 }
 
@@ -131,30 +164,8 @@
   color: #adb9e3;
   font-size: 22px;
   font-weight: bold;
-  overflow-y: hidden; /* 세로 스크롤 */
+  overflow-y: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* =================== 스크롤바 =================== */
-.sectionWrapper::-webkit-scrollbar {
-  width: 12px;
-  background-color: #f0f0f0;
-  border-radius: 6px;
-}
-
-.sectionWrapper::-webkit-scrollbar-thumb {
-  background-color: #adb9e3;
-  border-radius: 6px;
-  border: 3px solid #f0f0f0;
-}
-
-.sectionWrapper::-webkit-scrollbar-thumb:hover {
-  background-color: #8c8c8c;
-}
-
-.sectionWrapper::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
-  border-radius: 6px;
 }

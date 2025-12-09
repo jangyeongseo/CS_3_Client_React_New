@@ -7,7 +7,11 @@ const BabyCheckList = () => {
   const { data, handleClick } = UseBabyCheckList();
 
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        data.length === 0 ? styles.emptyContainer : ""
+      }`}
+    >
       {data.length > 0 ? (
         data.map((item, index) => (
           <div

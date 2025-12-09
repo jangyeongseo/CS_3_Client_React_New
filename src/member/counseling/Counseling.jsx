@@ -30,7 +30,7 @@ const Counseling = ({ onClose }) => {
         sender: "other",
         type: "card",
         senderName: "CS",
-        text: "지금 아기가 어떤 상황인가요? 상세한 정보를 제공해 주시면 맞춤형 긴급 상담을 시작할 수 있습니다.",
+        text: "지금 아기가 어떤 상황인가요?\n상세한 정보를 제공해 주시면 맞춤형 긴급 상담을 시작할 수 있습니다.",
         buttons: [
           "입덧이 심해요.",
           "아이가 열이 나요.",
@@ -49,6 +49,7 @@ const Counseling = ({ onClose }) => {
       ...prev.filter((msg) => msg.type !== "card"),
       {
         sender: "me",
+        type: "text",
         text: inputText,
         senderName: "나",
         time: formatTime,
@@ -94,6 +95,7 @@ const Counseling = ({ onClose }) => {
     }
   }, [messages, isLoading]);
 
+
   const MessageItem = ({ msg }) => {
     if (msg.type === "card") {
       return (
@@ -107,7 +109,7 @@ const Counseling = ({ onClose }) => {
                   <button
                     key={idx}
                     className={styles.cardButton}
-                    onClick={() => selectBtn(btn)}
+                    onClick={(e) => selectBtn(e)}
                   >
                     {btn}
                   </button>
@@ -125,13 +127,12 @@ const Counseling = ({ onClose }) => {
 
     return (
       <div
-        className={`${styles.messageContainer} ${
-          isMe
+        className={`${styles.messageContainer} ${isMe
             ? styles.myMessage
             : isSystem
-            ? styles.systemMessage
-            : styles.otherMessage
-        }`}
+              ? styles.systemMessage
+              : styles.otherMessage
+          }`}
       >
         {!isMe && !isSystem && (
           <span className={styles.senderName}>{msg.senderName}</span>
@@ -148,6 +149,7 @@ const Counseling = ({ onClose }) => {
     <div className={styles.container}>
       <div className={styles.left} onClick={onClose}></div>
       <div className={styles.right} onClick={(e) => e.stopPropagation()}>
+
         {/* 상단 헤더 + 안내문 sticky */}
         <div className={styles.stickyTop}>
           <div className={styles.up}>
@@ -157,9 +159,9 @@ const Counseling = ({ onClose }) => {
             </button>
           </div>
           <div className={styles.infoText}>
-            긴급 상황에서 AI 상담을 받을 수 있는 공간입니다.
+            아기와 산모의 증상에 대해 도움을 드리는 AI 상담 공간입니다.
             <br />
-            아기의 상태나 증상을 선택하거나 입력하여 맞춤형 상담을 시작하세요.
+            AI 상담은 참고용이며, 위급 상황에서는 의료 전문가에게 바로 문의하세요.
           </div>
         </div>
 

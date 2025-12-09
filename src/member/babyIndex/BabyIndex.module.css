@@ -29,7 +29,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  border: 1px solid var(--color-font-back);
 }
 
 /* 전체 화면 덮는 긴급 상담 레이어 */
