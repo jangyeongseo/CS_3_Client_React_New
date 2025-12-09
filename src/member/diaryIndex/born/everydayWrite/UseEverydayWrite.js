@@ -382,9 +382,9 @@ export function UseEverydayWrite({ closeModal, currentDate, fetchData, reverseTy
 
 
             // 2) 오른쪽 디테일 카드 리패치
-            const result = await fetchData(reverseTypeMap[activeType], currentDate);
-            const rDTOList = result.rDTOList || [];
-            setTargetDayData(rDTOList);
+            // const result = await fetchData(reverseTypeMap[activeType], currentDate);
+            // const rDTOList = result.rDTOList || [];
+            // setTargetDayData(rDTOList);
 
             // 3) 왼쪽 네비 평균 리패치
             if (startDate) {

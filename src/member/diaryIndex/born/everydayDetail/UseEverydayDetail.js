@@ -20,7 +20,7 @@ export const recordLabelMap = {
     "toilet/poop": "대변",
 };
 
-export function UseEverydayDetail({ currentDate, setCurrentDate, fetchData }) {
+export function UseEverydayDetail({ currentDate, setCurrentDate, fetchData, fetchAvgData, startDate, endDate, setAvg }) {
     // 타입별 아이콘과 색상 매핑
     const typeMap = {
         전체: { color: "#f0d827" },
@@ -109,6 +109,8 @@ export function UseEverydayDetail({ currentDate, setCurrentDate, fetchData }) {
                 })
             }
             alert("삭제가 완료되었습니다")
+            const averages = await fetchAvgData(startDate, endDate);
+            setAvg(averages);
             load();
         } catch (error) {
             console.log(error);

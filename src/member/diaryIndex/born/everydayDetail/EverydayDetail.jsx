@@ -298,7 +298,7 @@ const EverydayDetail = ({
                             <div
                               className={styles.dropdownItem}
                               onClick={() => {
-                                handleDelete(item)
+                                console.log("삭제");
                                 setOpenDropdownIndex(null);
                               }}
                             >

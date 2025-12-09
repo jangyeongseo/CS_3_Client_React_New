@@ -120,6 +120,8 @@ export function UseDiaryWrite({ getTargetWeekDiary, setSelectedDiaryId, selected
             } catch (err) {
                 alert("산모수첩 수정에 실패했습니다. 다시 시도하세요");
                 return;
+            } finally {
+                setIsSubmitting(false);
             }
 
 
