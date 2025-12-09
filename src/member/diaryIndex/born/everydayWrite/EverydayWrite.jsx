@@ -14,8 +14,25 @@ const containerVariants = {
   exit: { opacity: 0, y: -30, scale: 0.95, transition: { duration: 0.2 } },
 };
 
-// 분류
-const EverydayWrite = ({ activeType, closeModal, isOpen, currentDate, fetchData, reverseTypeMap, setTargetDayData, fetchAvgData, startDate, endDate, setAvg, targetDayData, editMode, setEditMode, editData, setEditData, load }) => {
+const EverydayWrite = ({
+  activeType,
+  closeModal,
+  isOpen,
+  currentDate,
+  fetchData,
+  reverseTypeMap,
+  setTargetDayData,
+  fetchAvgData,
+  startDate,
+  endDate,
+  setAvg,
+  targetDayData,
+  editMode,
+  setEditMode,
+  editData,
+  setEditData,
+  load,
+}) => {
   const {
     getLogDetails,
     handleAdd,
@@ -34,32 +51,38 @@ const EverydayWrite = ({ activeType, closeModal, isOpen, currentDate, fetchData,
     endMin,
     endMax,
     isSubmitting,
+  } = UseEverydayWrite({
+    closeModal,
+    currentDate,
+    fetchData,
+    reverseTypeMap,
+    setTargetDayData,
+    fetchAvgData,
+    startDate,
+    endDate,
+    setAvg,
+    targetDayData,
+    editMode,
+    setEditMode,
+    editData,
+    setEditData,
+    activeType,
+    load,
+  });
 
-  } = UseEverydayWrite({ closeModal, currentDate, fetchData, reverseTypeMap, setTargetDayData, fetchAvgData, startDate, endDate, setAvg, targetDayData, editMode, setEditMode, editData, setEditData, activeType, load });
-
-  // activeType에 따른 UI 정보 가져오기
   const { unit, inputType, label, options } = getLogDetails(activeType);
-
-  // const handleAmountChange = (e, key) => {// 단일 입력일 경우 'value' 키를 사용하도록 처리 (분유, 체온 등)
-  //   const updateKey =
-  //     inputType === "number" || inputType === "text" ? "value" : key;
-  // };
-
-
 
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
-          <motion.div
-            className={styles.overlay}
-            variants={modalVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            onClick={closeModal}
-          />
-
+        <motion.div
+          className={styles.overlay}
+          variants={modalVariants}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          onClick={closeModal}
+        >
           <motion.div
             className={styles.writeContainer}
             variants={containerVariants}
@@ -68,8 +91,6 @@ const EverydayWrite = ({ activeType, closeModal, isOpen, currentDate, fetchData,
             exit="exit"
             onClick={(e) => e.stopPropagation()}
           >
-
-
             {/* 모달창 시작 */}
             <div className={styles.contentWrapper}>
               <div className={styles.categoryTitleWrapper}>
@@ -77,11 +98,8 @@ const EverydayWrite = ({ activeType, closeModal, isOpen, currentDate, fetchData,
               </div>
 
               <div className={styles.inputGroup}>
-
-
-                {/* 1번째 입력창*/}
+                {/* 1번째 입력창 */}
                 <div className={styles.inputBox}>
-                  {/* 만약 수면이라면 */}
                   {activeType === "수면" ? (
                     <>
                       <div className={styles.inputLabel}>시간</div>
@@ -91,7 +109,7 @@ const EverydayWrite = ({ activeType, closeModal, isOpen, currentDate, fetchData,
                         value={sleepStart}
                         min={startMin}
                         max={startMax}
-                        onChange={(e) => { setSleepStart(e.target.value); console.log(e.target.value) }}
+                        onChange={(e) => setSleepStart(e.target.value)}
                       />
                     </>
                   ) : (
@@ -107,32 +125,28 @@ const EverydayWrite = ({ activeType, closeModal, isOpen, currentDate, fetchData,
                   )}
                 </div>
 
-                {/* 2번째 입력창 */}
-                {/* 1) 배변일 때 */}
+                {/* 배변 그룹 */}
                 {inputType === "group" && (
-                  <>
-                    {/* 종류 선택: radio 버튼 */}
-                    <div className={styles.inputBox}>
-                      <div className={styles.inputLabel}>종류</div>
-                      <div className={styles.radioGroup}>
-                        {options.type.map((t) => (
-                          <label key={t} className={styles.radioLabel}>
-                            <input
-                              type="radio"
-                              name="pooType"
-                              value={t}
-                              checked={pooType === t}
-                              onChange={() => setPooType(t)}
-                            />
-                            {t}
-                          </label>
-                        ))}
-                      </div>
+                  <div className={styles.inputBox}>
+                    <div className={styles.inputLabel}>종류</div>
+                    <div className={styles.radioGroup}>
+                      {options.type.map((t) => (
+                        <label key={t} className={styles.radioLabel}>
+                          <input
+                            type="radio"
+                            name="pooType"
+                            value={t}
+                            checked={pooType === t}
+                            onChange={() => setPooType(t)}
+                          />
+                          {t}
+                        </label>
+                      ))}
                     </div>
-                  </>
+                  </div>
                 )}
 
-                {/* 2) 수면일 때 */}
+                {/* 수면 종료시간 */}
                 {activeType === "수면" && (
                   <div className={styles.inputBox}>
                     <div className={styles.inputLabel}>시간</div>
@@ -145,10 +159,9 @@ const EverydayWrite = ({ activeType, closeModal, isOpen, currentDate, fetchData,
                       onChange={(e) => setSleepEnd(e.target.value)}
                     />
                   </div>
-
                 )}
 
-                {/* 3) 일반 입력일 때 */}
+                {/* 일반 입력 */}
                 {["number", "text"].includes(inputType) && (
                   <div className={styles.inputBox}>
                     <div className={styles.inputLabel}>{label}</div>
@@ -172,16 +185,16 @@ const EverydayWrite = ({ activeType, closeModal, isOpen, currentDate, fetchData,
                 )}
               </div>
 
-
-
               {/* 버튼 */}
               <div className={styles.actionButtonsWrapper}>
                 <div className={styles.actionButtonsContainer}>
                   <button
                     className={`${styles.actionButton} ${styles.backButton}`}
-                    onClick={closeModal}>
+                    onClick={closeModal}
+                  >
                     <div className={styles.buttonText}>뒤로가기</div>
                   </button>
+
                   <button
                     className={`${styles.actionButton} ${styles.completeButton}`}
                     onClick={() => handleAdd(activeType)}
@@ -193,7 +206,7 @@ const EverydayWrite = ({ activeType, closeModal, isOpen, currentDate, fetchData,
               </div>
             </div>
           </motion.div>
-        </>
+        </motion.div>
       )}
     </AnimatePresence>
   );

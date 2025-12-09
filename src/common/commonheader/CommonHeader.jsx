@@ -55,7 +55,7 @@ const CommonHeader = ({ isLogin, alerts, setAlerts, setIsCounselOpen }) => {
     setIsNavOpen(false); // 알림 열 때 사이드바 닫기
   };
 
-  const isPathActive = (path) => location.pathname === path;
+  const isPathActive = (path) => location.pathname.startsWith(path);
 
   // 로그아웃
   const { logout } = useAuthStore((state) => state);
@@ -63,7 +63,13 @@ const CommonHeader = ({ isLogin, alerts, setAlerts, setIsCounselOpen }) => {
 
   return (
     <div>
-      {isNavOpen && <BabySideNavi onClose={closeSideNav} setIsNavOpen = {setIsNavOpen} setIsCounselOpen={setIsCounselOpen}/>}
+      {isNavOpen && (
+        <BabySideNavi
+          onClose={closeSideNav}
+          setIsNavOpen={setIsNavOpen}
+          setIsCounselOpen={setIsCounselOpen}
+        />
+      )}
 
       <div className={styles.topbar}>
         <div className={styles.headerContentWrapper}>

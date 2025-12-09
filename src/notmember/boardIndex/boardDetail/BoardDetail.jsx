@@ -225,7 +225,7 @@ const BoardDetail = ({ handleDeleteBoard, handleEditBoard, isDeleting }) => {
                 </AnimatePresence>
               ) : (
                 <div
-                  className={styles.emptyComments}
+                  className={styles.emptyComment}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <MessageCircle size={36} />
