@@ -283,10 +283,10 @@ const Information = () => {
           variants={staggerChildren}
         >
           <motion.h2 variants={fadeUp} className={styles.sectionTitle}>
-            성장 기록 갤러리
+            코코벨 핵심 기능 소개
           </motion.h2>
           <motion.p variants={fadeUp} className={styles.sectionDesc}>
-            아기의 소중한 순간들을 갤러리 형태로 모아보세요.
+            코코벨의 다양한 기능들을 한눈에 살펴보세요.
           </motion.p>
 
           <div className={`${styles.galleryRow} ${styles.rowR2L}`}>

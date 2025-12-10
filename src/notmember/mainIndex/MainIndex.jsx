@@ -101,13 +101,17 @@ const MainIndex = ({ alerts, setAlerts }) => {
           isInfoPage ? styles.MemberHeaderFixed : styles.MemberHeaderNormal
         }
       >
-        <CommonHeader isLogin={isLogin} alerts={alerts} setAlerts={setAlerts} setIsCounselOpen={setIsCounselOpen} />
+        <CommonHeader
+          isLogin={isLogin}
+          alerts={alerts}
+          setAlerts={setAlerts}
+          setIsCounselOpen={setIsCounselOpen}
+        />
       </header>
 
       <div className={mainLayoutClassName}>
         <Routes>
           <Route path="" element={!isLogin ? <Information /> : <BabyIndex />} />
-
           <Route path="board/*" element={<BoardIndex />} />
           <Route
             path="mypage"
@@ -149,12 +153,12 @@ const MainIndex = ({ alerts, setAlerts }) => {
               </PrivateRoute>
             }
           />
+          {/*산모수첩*/}
           <Route path="*" element={<ToLogin />} />
         </Routes>
       </div>
-      {isCounselOpen && (
-        <Counseling onClose={() => setIsCounselOpen(false)} />
-      )}
+
+      {isCounselOpen && <Counseling onClose={() => setIsCounselOpen(false)} />}
     </div>
   );
 };

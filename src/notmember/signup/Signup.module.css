@@ -24,7 +24,7 @@
 .newusertitle {
     font-size: 32px;
     font-weight: bold;
-    color: #696B70;
+    color: #696b70;
     display: flex;
     justify-content: center;
 }
@@ -47,7 +47,7 @@
 }
 
 .newemail label {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
     font-weight: bold;
     display: block;
@@ -66,7 +66,7 @@
 }
 
 .newemail input::placeholder {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .emailing label {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
     font-weight: bold;
     display: block;
@@ -117,12 +117,12 @@
 }
 
 .emailing input::placeholder {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
 }
 
 .newid label {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
     font-weight: bold;
     display: block;
@@ -141,7 +141,7 @@
 }
 
 .newid input::placeholder {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
 }
 
@@ -167,7 +167,7 @@
 }
 
 .newnic label {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
     font-weight: bold;
     display: block;
@@ -186,7 +186,7 @@
 }
 
 .newnic input::placeholder {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
 }
 
@@ -212,7 +212,7 @@
 }
 
 .pwing label {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
     font-weight: bold;
     display: block;
@@ -231,12 +231,12 @@
 }
 
 .pwing input::placeholder {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
 }
 
 .phone label {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
     font-weight: bold;
     display: block;
@@ -255,7 +255,7 @@
     text-align: center;
     font-size: 16px;
     font-weight: 400;
-    color: #8C8C8C;
+    color: #8c8c8c;
     flex-shrink: 0;
 }
 
@@ -263,7 +263,7 @@
     width: 20px;
     text-align: center;
     font-weight: 400;
-    color: #8C8C8C;
+    color: #8c8c8c;
     flex-shrink: 0;
 }
 
@@ -279,12 +279,12 @@
 }
 
 .phoneWrapper input::placeholder {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
 }
 
 .birthing label {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
     font-weight: bold;
     display: block;
@@ -303,12 +303,12 @@
 }
 
 .birthing input::placeholder {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
 }
 
 .familying label {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
     font-weight: bold;
     display: block;
@@ -327,7 +327,7 @@
 }
 
 .familying input::placeholder {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: 16px;
 }
 
@@ -340,7 +340,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #8C8C8C;
+    color: #8c8c8c;
     cursor: pointer;
 }
 
@@ -374,7 +374,6 @@
     transform: translate(-50%, -50%);
 }
 
-
 .checkAndParent {
     display: flex;
     gap: 20px;
@@ -397,7 +396,7 @@
     align-items: center;
     font-size: 16px;
     font-weight: bold;
-    color: #8C8C8C;
+    color: #8c8c8c;
 }
 
 .papa {
@@ -440,7 +439,7 @@
 .me {
     font-size: 16px;
     font-weight: bold;
-    color: #8C8C8C;
+    color: #8c8c8c;
 }
 
 .buttonGroup {
@@ -491,7 +490,20 @@
 }
 
 .borderRegex {
-    border: solid 1px #499ef8 !important;
+    border: 1px solid #ff7a7a !important;
+    background-color: #fff;
+    padding: 8px 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+
+    transition: all 0.2s ease;
+}
+
+.borderRegex:focus,
+.borderRegex:focus-within {
+    outline: none;
+
+    border-color: #ff7a7a;
+    box-shadow: 0 0 0 4px rgba(255, 122, 122, 0.35);
 }
 
 .noCode {
@@ -521,7 +533,6 @@
         min-width: 0;
     }
 }
-
 
 @media (max-width: 768px) {
     .membershipbox {
