@@ -39,7 +39,7 @@ const ChooseType = () => {
         gap: "50px",
       }}
     >
-      {/* ★ 1. 기본 선택 화면 */}
+      {/* 기본 선택 화면 */}
       {!showInputBaby && (
         <>
           {/* 임산모 선택 박스 */}
@@ -84,7 +84,7 @@ const ChooseType = () => {
         </>
       )}
 
-      {/* ★ 2. InputBaby 컴포넌트 모달 렌더링 */}
+      {/* InputBaby 컴포넌트 모달 렌더링 */}
       {showInputBaby && (
         <InputBaby
           type={babyType}

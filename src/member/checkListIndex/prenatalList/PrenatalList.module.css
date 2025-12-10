@@ -213,9 +213,7 @@
   color: var(--color-font-color2);
 }
 
-/* ========================= */
 /* 모달 공통 스타일 */
-/* ========================= */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -355,9 +353,7 @@
   font-weight: bold;
 }
 
-/* ========================= */
 /* 반응형 */
-/* ========================= */
 @media (max-width: 1024px) {
   .innerWrapper {
     width: 50%;

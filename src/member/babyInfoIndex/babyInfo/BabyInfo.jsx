@@ -50,7 +50,7 @@ const BabyInfo = () => {
               }`}
             readOnly={!isEditing}
             style={{
-              border: isEditing ? "1px solid #696B70" : "none",
+              border: isEditing ? "1px solid var(--color-font-back)" : "none",
               backgroundColor: isEditing ? "white" : "#FFF4D6",
               cursor: isEditing ? "text" : "default",
             }}
@@ -76,7 +76,7 @@ const BabyInfo = () => {
               : { min: todayString })
             }
             style={{
-              border: isEditing ? "1px solid #696B70" : "none",
+              border: isEditing ? "1px solid var(--color-font-back)" : "none",
               backgroundColor: isEditing ? "white" : "#FFF4D6",
               cursor: isEditing ? "text" : "default",
               appearance: "none",
@@ -116,7 +116,7 @@ const BabyInfo = () => {
                       border:
                         selectedGender === gender
                           ? "none"
-                          : "1px solid #8C8C8C",
+                          : "1px solid var(--color-font-back)",
                       cursor: "pointer",
                     }}
                   >

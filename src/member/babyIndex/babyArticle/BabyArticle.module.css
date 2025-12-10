@@ -34,13 +34,13 @@
   background-color: var(--color-hover);
 }
 
-/* ======================= 각 카드 전체 래퍼 ======================= */
+/*각 카드 전체 래퍼*/
 .cardWrapper {
   width: 100%;
   margin-bottom: 20px; /* 다음 카드와의 간격 */
 }
 
-/* ======================= 상단 카드 ======================= */
+/*상단 카드*/
 /* 각 카테고리 카드 컨테이너 */
 .cardContainer {
   width: 100%;
@@ -112,14 +112,14 @@
   -webkit-box-orient: vertical;
 }
 
-/* ======================= 카드 목록 그리드 ======================= */
+/* 카드 목록 그리드 */
 .cardGrid {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* ======================= 기사 목록 ======================= */
+/* 기사 목록 */
 .articleList {
   display: flex;
   flex-direction: column;
@@ -148,7 +148,7 @@
   color: var(--color-font-color1);
 }
 
-/* ======================= 로딩 & 에러 ======================= */
+/* 로딩 & 에러 */
 .loading {
   text-align: center;
   margin-top: 40px;

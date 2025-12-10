@@ -1,4 +1,3 @@
-/*--------------------------------------------------------------------------------------------------*/
 /*임산모 선택했을때*/
 
 /*아가4명중 하나*/
@@ -23,7 +22,6 @@
   justify-content: center;
   flex-direction: column;
   gap: 10px;
-  /* border:1px solid black; */
 }
 
 .clickplus {
@@ -34,8 +32,6 @@
   width: 100%;
   max-height: 350px; /* 스크롤 높이 */
   overflow-y: auto;
-  /* padding-right: 10px; */
-  /* border:1px solid black; */
 }
 
 .babymomclick h1 {
@@ -53,7 +49,6 @@
 /*버튼들*/
 .buttons {
   width: 100%;
-  /* border:1px solid black; */
   display: flex;
   gap: 8%;
   margin-top: 10px;
@@ -69,10 +64,8 @@
 }
 
 .why {
-  /* background-color: #ADB9E3; */
   color: #8c8c8c;
   border: 1px solid #8c8c8c;
-  /* font-weight: bold; */
   background-color: white;
 }
 
@@ -96,7 +89,6 @@
   flex-direction: column;
   gap: 5px;
   margin-top: 16px;
-  /* border:1px solid black; */
 }
 
 .babyparty label {
@@ -123,7 +115,6 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  /* border:1px solid black; */
 }
 
 .babyname label {
@@ -146,11 +137,6 @@
 .babyname input::placeholder {
   color: #8c8c8c;
 }
-/* focus 시 border 색 변경 */
-/* .babyparty input:focus,
-.babyname input:focus {
-    border: 2px solid #F0D827; 원하는 색상
-} */
 
 /*쌍둥이 추가 부분*/
 
@@ -161,7 +147,6 @@
   align-items: center;
   gap: 10px;
   margin-top: 5px;
-  /* border:1px solid black; */
 }
 
 .babyplus p {
@@ -178,7 +163,6 @@
   justify-content: center;
   align-items: center;
   gap: 10%;
-  /* border:1px solid black; */
 }
 
 .deb,
@@ -214,7 +198,6 @@
 
 .buttonss {
   width: 100%;
-  /* border:1px solid black; */
   display: flex;
   gap: 8%;
   margin-top: 10px;
@@ -237,7 +220,6 @@
 
 .girltwo {
   border: 1px solid #8c8c8c;
-  /* background-color: #ADB9E3; */
   background-color: white;
   font-size: 18px;
   color: #8c8c8c;

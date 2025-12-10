@@ -1,6 +1,4 @@
-/* ==============================
-   전체 컨테이너
-   ============================== */
+/*전체 컨테이너*/
 .rightcontainer {
   width: 100%;
   height: 100%;
@@ -21,9 +19,7 @@
   flex-direction: column;
 }
 
-/* ==============================
-   아기 선택 박스 영역
-   ============================== */
+/*아기 선택 박스 영역*/
 .one {
   flex: 1;
   border-radius: 30px;
@@ -34,9 +30,9 @@
 
 /* 사이드바 모드일 때 */
 .sidebarContainer .one {
-  align-items: flex-start; /* 상단 정렬 */
-  justify-content: flex-start;
-  padding-top: 8px; /* 약간의 간격 추가 */
+  align-items: flex-start;  /* 상단 정렬 */
+  justify-content: flex-start; 
+  padding-top: 8px;        /* 약간의 간격 추가 */
 }
 
 /* 아기추가 + 아기리스트 전체 */
@@ -87,31 +83,17 @@
 .babyList::-webkit-scrollbar-thumb {
   background-color: var(--color-primary);
   border-radius: 4px;
-  border: 2px solid var(--color-white);
+  border: 2px solid #ffffff;
 }
 
 .babyList::-webkit-scrollbar-thumb:hover {
   background-color: var(--color-hover);
 }
 
-.plusIcon {
-  width: 28px;
-  height: 28px;
-  stroke: var(--color-primary);
-  stroke-width: 2.5;
-}
-
-/* Hover 시 색상 변경 */
-.plusbb:hover .plusIcon {
-  stroke: var(--color-hover);
-}
-
-/* --------------------------------------------------
-   선택된 아기 버튼
-   -------------------------------------------------- */
+/*선택된 아기 버튼*/
 .ingbaby1 {
-  border: 1px solid var(--color-primary);
-  background-color: var(--color-sud-color1);
+  border: 1px solid #f0d827;
+  background-color: #fff4d6;
   border-radius: 30px;
   display: flex;
   justify-content: center;
@@ -130,8 +112,8 @@
 
 /* 일반 아기 버튼 */
 .ingbaby {
-  border: 1px solid var(--color-primary);
-  background-color: var(--color-white);
+  border: 1px solid #f0d827;
+  background-color: #ffffff;
   border-radius: 30px;
   display: flex;
   justify-content: center;
@@ -142,7 +124,7 @@
 }
 
 .ingbaby:hover {
-  background-color: var(--color-sud-color1);
+  background-color: #fff4d6;
   transform: scaleX(1.05);
   transition: transform 0.3s ease;
 }
@@ -159,12 +141,12 @@
 .babyname {
   font-size: 20px;
   font-weight: bold;
-  color: var(--color-font-color1);
+  color: #696b70;
 }
 
 .how {
   font-size: 16px;
-  color: var(--color-font-color1);
+  color: #696b70;
   font-weight: bold;
 }
 
@@ -176,9 +158,7 @@
   object-fit: contain;
 }
 
-/* --------------------------------------------------
-   아기 추가 버튼
-   -------------------------------------------------- */
+/*아기 추가 버튼*/
 .plusbb {
   display: flex;
   align-items: center;
@@ -186,9 +166,9 @@
   gap: 8px;
   width: 100%;
   height: 100%;
-  border: 1px solid var(--color-primary);
+  border: 1px solid #f0d827;
   border-radius: 30px;
-  background-color: var(--color-white);
+  background-color: #ffffff;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -196,18 +176,16 @@
 .plusbb span {
   font-size: 18px;
   font-weight: bold;
-  color: var(--color-font-color1);
+  color: #696b70;
 }
 
 .plusbb:hover {
-  background-color: var(--color-sud-color1);
+  background-color: #fff4d6;
   transform: scale(1.05);
   transition: transform 0.3s ease;
 }
 
-/* ==============================
-   모달 배경
-   ============================== */
+/*모달 배경*/
 .modal {
   position: fixed;
   top: 0;
@@ -224,9 +202,7 @@
   overflow-y: auto;
 }
 
-/* ==============================
-   모달 내부 컨테이너
-   ============================== */
+/*모달 내부 컨테이너*/
 .ppap {
   display: flex;
   flex-direction: row;
@@ -239,14 +215,12 @@
   position: relative;
 }
 
-/* ==============================
-   모달 내부 버튼 스타일
-   ============================== */
+/*모달 내부 버튼 스타일*/
 .modalContentone,
 .modalContenttwo {
   flex: 1;
   height: 100%;
-  background-color: var(--color-white);
+  background-color: #ffffff;
   border-radius: 22px;
   display: flex;
   flex-direction: column;
@@ -262,8 +236,8 @@
 .modalContenttwo:hover {
   transform: translateY(0px) scale(1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  border: 2px solid var(--color-primary);
-  background-color: var(--color-sud-color1);
+  border: 2px solid #f0d827;
+  background-color: #fff4d6;
 }
 
 .modalone,
@@ -279,13 +253,13 @@
 .babtitle {
   font-size: 28px;
   font-weight: bold;
-  color: var(--color-font-color1);
+  color: #696b70;
 }
 
 .be,
 .bee {
   font-size: 16px;
-  color: var(--color-font-color2);
+  color: #8c8c8c;
   margin-bottom: 24px;
 }
 
@@ -304,12 +278,10 @@
 
 .modalContentone:hover .sanmotitle,
 .modalContenttwo:hover .babtitle {
-  color: var(--color-primary);
+  color: #f0d827;
 }
 
-/* --------------------------------------------------
-   모달 닫기 버튼
-   -------------------------------------------------- */
+/*모달 닫기 버튼*/
 .back {
   position: absolute;
   top: 10px;
@@ -319,19 +291,17 @@
   font-weight: bold;
   border: none;
   border-radius: 8px;
-  background-color: var(--color-white);
+  background-color: #ffffff;
   cursor: pointer;
   z-index: 10;
 }
 
 .back:hover {
-  color: var(--color-hover);
-  border: 2px solid var(--color-hover);
+  color: #d9b600;
+  border: 2px solid #d9b600;
 }
 
-/* ==============================
-   사이드바 전용 컨테이너
-   ============================== */
+/*사이드바 전용 컨테이너*/
 .sidebarContainer {
   display: flex;
   flex-direction: column;
@@ -341,9 +311,9 @@
   overflow-x: hidden;
 
   /* 스크롤 스타일 */
-  scrollbar-width: thin; /* Firefox */
+  scrollbar-width: thin;
   scrollbar-color: var(--color-primary) transparent;
-  /* border: 1px solid black; */
+
 }
 
 .sidebarContainer::-webkit-scrollbar {
@@ -364,26 +334,13 @@
   background-color: var(--color-hover);
 }
 
-.sidebarContainer .plusIcon {
-  width: 20px;
-  height: 20px;
-  stroke: var(--color-primary);
-  stroke-width: 2.2;
-}
-
-.sidebarContainer .plusbb:hover .plusIcon {
-  stroke: var(--color-hover);
-}
-
-/* ==============================
-   아기 클릭 영역
-   ============================== */
+/*아기 클릭 영역*/
 .sidebarContainer .babyclick {
   display: flex;
   flex-direction: column;
-  gap: 8px; /* 간격 줄임 */
-  padding: 4px 0; /* 패딩 줄임 */
-  height: auto;
+  gap: 8px;        /* 간격 줄임 */
+  padding: 4px 0;  /* 패딩 줄임 */
+  height: auto;    
   overflow: visible;
 }
 
@@ -391,39 +348,37 @@
 .sidebarContainer .babyList {
   display: flex;
   flex-direction: column;
-  gap: 8px; /* 간격 줄임 */
+  gap: 8px;       /* 간격 줄임 */
   width: 99%;
-  height: auto;
+  height: auto;  
   overflow: visible;
 }
 
-/* ==============================
-   아기 버튼
-   ============================== */
+/*아기 버튼*/
 .sidebarContainer .ingbaby {
-  height: 65px; /* 일반 버튼 높이 */
-  flex: 0 0 auto; /* flex stretch 방지 */
+  height: 65px;       /* 일반 버튼 높이 */
+  flex: 0 0 auto;     /* flex stretch 방지 */
   border: 1px solid #d9d9d9;
   border-radius: 20px;
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  gap: 8px; /* 내부 요소 간격 축소 */
-  padding: 0 8px; /* 좌우 패딩 줄임 */
+  gap: 8px;           /* 내부 요소 간격 축소 */
+  padding: 0 8px;     /* 좌우 패딩 줄임 */
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 /* 선택된 버튼 */
 .sidebarContainer .ingbaby1 {
-  height: 90px; /* 일반 버튼보다 크게 */
+  height: 90px;       /* 일반 버튼보다 크게 */
   flex: 0 0 auto;
   border: 1px solid #f0d827;
   border-radius: 20px;
   background-color: #fff4d6;
   display: flex;
   align-items: center;
-  gap: 10px; /* 내부 요소 간격 살짝 늘림 */
+  gap: 10px;          /* 내부 요소 간격 살짝 늘림 */
   padding: 0 8px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -434,22 +389,22 @@
   display: flex;
   flex-direction: row !important;
   align-items: center;
-  gap: 8px; /* 일반 버튼 */
+  gap: 8px;      /* 일반 버튼 */
 }
 
 .sidebarContainer .ingbaby1 .bbb {
-  gap: 10px; /* 선택된 버튼은 내부 요소 간격 조금 넓게 */
+  gap: 10px;     /* 선택된 버튼은 내부 요소 간격 조금 넓게 */
 }
 
 .sidebarContainer .bbb img {
-  width: 50px; /* 일반 버튼 이미지 */
+  width: 50px;   /* 일반 버튼 이미지 */
   height: 50px;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .sidebarContainer .ingbaby1 .bbb img {
-  width: 60px; /* 선택된 버튼 이미지 조금 크게 */
+  width: 60px;   /* 선택된 버튼 이미지 조금 크게 */
   height: 60px;
 }
 
@@ -478,11 +433,9 @@
   font-size: 14px; /* 선택된 버튼 조금 크게 */
 }
 
-/* ==============================
-   아기 추가 버튼
-   ============================== */
+/*아기 추가 버튼*/
 .sidebarContainer .plusbb {
-  height: 44px; /* 버튼 높이 축소 */
+  height: 44px;       /* 버튼 높이 축소 */
   flex: 0 0 auto;
   display: flex;
   align-items: center;
